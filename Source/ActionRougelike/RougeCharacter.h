@@ -6,16 +6,25 @@
 #include "GameFramework/Character.h"
 #include "RougeCharacter.generated.h"
 
+class USpringArmComponent;
+class UCameraComponent;
+
 UCLASS()
 class ACTIONROUGELIKE_API ARougeCharacter : public ACharacter
 {
 	GENERATED_BODY()
 
 public:
-	// Sets default values for this character's properties
+	// Sets default values for this character's properties`
 	ARougeCharacter();
 
 protected:
+	UPROPERTY(VisibleAnywhere, Category="Components")
+	TObjectPtr<UCameraComponent> CameraComponent;
+
+	UPROPERTY(VisibleAnywhere, Category="Components")
+	TObjectPtr<USpringArmComponent> SpringArmComponent;
+	
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
